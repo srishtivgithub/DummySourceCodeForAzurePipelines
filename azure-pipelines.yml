@@ -22,7 +22,8 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-# Added this task=Command line
+# Added this task=Command line-
+#means displays all folder structure in ubunto agent machine
 - task: CmdLine@2
   inputs:
     script: |
