@@ -21,10 +21,20 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+# Added this task=Command line
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "Listing files..."
+      ls -R
+#task=copy file
+#in Content->changed from '**/.war' to '**/target/*.war'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/.war'
+    Contents: '**/target/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
+#task=PublishBuildArtifacts
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
